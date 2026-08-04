@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Make a Wish, Titi! 🎂</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="cake.css">
+</head>
+<body>
+
+  <!-- Background Twinkling Stars -->
+  <div id="stars-container" aria-hidden="true"></div>
+
+  <!-- Fullscreen Container for Celebratory Explosions -->
+  <div id="celebration-overlay"></div>
+
+  <main class="page-container">
+
+    <!-- Wish Heading Text -->
+    <div class="wish-header">
+      <h1 id="wishTitle" class="wish-title">Make a Wish! ✨</h1>
+      <p id="wishSubtitle" class="wish-subtitle">Blow into your mic or tap the button below 🕯️</p>
+    </div>
+
+    <!-- Professional Interactive Birthday Cake -->
+    <div class="cake-wrapper">
+      <div id="ambientGlow" class="ambient-glow"></div>
+      
+      <!-- Candle Section -->
+      <div class="candle">
+        <div id="flame" class="flame">
+          <div class="flame-inner"></div>
+        </div>
+        <div id="smoke" class="smoke-container">
+          <div class="smoke-particle p1"></div>
+          <div class="smoke-particle p2"></div>
+          <div class="smoke-particle p3"></div>
+        </div>
+        <div class="wick"></div>
+        <div class="candle-body"></div>
+      </div>
+
+      <!-- Professional Layered Cake Structure -->
+      <div class="cake">
+        <!-- Top Frosting & Toppings Layer -->
+        <div class="cake-top">
+          <div class="cherries">
+            <span class="cherry c1">🍒</span>
+            <span class="cherry c2">🍒</span>
+            <span class="cherry c3">🍒</span>
+          </div>
+          <div class="drip drip-1"></div>
+          <div class="drip drip-2"></div>
+          <div class="drip drip-3"></div>
+          <div class="drip drip-4"></div>
+          <div class="drip drip-5"></div>
+          
+          <!-- Sprinkles -->
+          <div class="sprinkle s1"></div>
+          <div class="sprinkle s2"></div>
+          <div class="sprinkle s3"></div>
+          <div class="sprinkle s4"></div>
+          <div class="sprinkle s5"></div>
+        </div>
+
+        <!-- Middle Layer with Cream Filling -->
+        <div class="cake-middle">
+          <div class="cream-filling"></div>
+        </div>
+
+        <!-- Bottom Base Layer -->
+        <div class="cake-bottom">
+          <div class="texture-pattern"></div>
+        </div>
+
+        <!-- Glass / Metal Cake Plate -->
+        <div class="cake-plate"></div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="button-wrapper">
+      <button id="blowBtn" class="blow-btn">
+        Blow Candle 💨🕯️
+      </button>
+
+      <button id="finalPageBtn" class="final-btn hidden">
+        See Final Surprise ✨
+      </button>
+    </div>
+
+  </main>
+
+  <script src="cake.js"></script>
+</body>
+</html>

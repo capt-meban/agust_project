@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Titi's Birthday Surprise 💙</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styleG.css">
+</head>
+<body>
+
+  <!-- Background Stars Container -->
+  <div id="stars-container" aria-hidden="true"></div>
+
+  <!-- Background Floating Balloons -->
+  <div class="balloon balloon-left">🎈</div>
+  <div class="balloon balloon-right">🎈</div>
+
+  <!-- Container for dynamically spawned balloons -->
+  <div id="balloon-sky" class="balloon-sky"></div>
+
+  <main class="card-container">
+
+    <!-- Hero Header & Main Photo -->
+    <section class="hero-section">
+      <div class="main-photo-frame">
+        <img src="photo/WhatsApp Image 2026-08-02 at 9.49.32 PM.jpeg" alt="Main Photo">
+      </div>
+      <h1 class="title-name">Happy Birthday Titi 💙</h1>
+      <p class="quote">"Every smile of yours makes my world brighter."</p>
+    </section>
+
+    <!-- Connected Memory Album Grid -->
+    <section class="memory-album">
+      <div class="album-badge">Favorite Memories</div>
+      <div class="memories-row">
+        <!-- Photo 1: Soft Squircle -->
+        <div class="memory-card photo-1">
+          <img src="photo/image1.png" alt="Memory 1">
+        </div>
+        <!-- Photo 2: Cute Arch -->
+        <div class="memory-card photo-2">
+          <img src="photo/image10.png" alt="Memory 2">
+        </div>
+        <!-- Photo 3: Hexagon -->
+        <div class="memory-card photo-3">
+          <img src="photo/image5.png" alt="Memory 3">
+        </div>
+      </div>
+    </section>
+
+    <!-- Vector Birthday Cake (CSS Built) -->
+    <section class="cake-section">
+      <div class="cake">
+        <div class="candle">
+          <div class="flame"></div>
+        </div>
+        <div class="layer layer-top"></div>
+        <div class="layer layer-middle"></div>
+        <div class="layer layer-bottom"></div>
+      </div>
+    </section>
+
+    <!-- Release Balloons Button -->
+    <div class="button-wrapper">
+      <button id="releaseBtn" class="surprise-btn">
+        Release Balloons 🎈
+      </button>
+    </div>
+
+  </main>
+
+  <script src="scriptG.js"></script>
+</body>
+</html>

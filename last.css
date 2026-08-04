@@ -1,0 +1,281 @@
+/* ==========================================
+   RESET & BASE STYLES
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #070b19;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  padding: 20px 16px;
+}
+
+#stars-container, #gift-explosion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+#stars-container { z-index: 0; }
+#gift-explosion { z-index: 99; }
+
+.star {
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: twinkle var(--duration, 3s) infinite ease-in-out var(--delay, 0s);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 0.9; transform: scale(1.2); }
+}
+
+/* ==========================================
+   PAGE CONTAINER
+   ========================================== */
+.page-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.present-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.3rem;
+  color: #38bdf8;
+  text-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+  transition: all 0.5s ease;
+}
+
+.present-subtitle {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* ==========================================
+   GIFT BOX STYLES & ANIMATION
+   ========================================== */
+.gift-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 30px 0;
+  cursor: pointer;
+  animation: floatGift 3s infinite ease-in-out;
+  transition: transform 0.3s ease, opacity 0.5s ease;
+}
+
+.gift-wrapper:active {
+  transform: scale(0.92);
+}
+
+.gift-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gift-body {
+  width: 140px;
+  height: 110px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border-radius: 12px;
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.ribbon-vertical {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 100%;
+  background: linear-gradient(to right, #fbbf24, #f59e0b);
+}
+
+.gift-lid {
+  width: 156px;
+  height: 38px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border-radius: 8px;
+  position: absolute;
+  top: 18px;
+  left: 2px;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ribbon-bow {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45px;
+  height: 24px;
+  background: #fbbf24;
+  border-radius: 50% 50% 0 0;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.6);
+}
+
+.gift-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.4) 0%, rgba(7, 11, 25, 0) 70%);
+  border-radius: 50%;
+  z-index: -1;
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
+/* Lid opening effect */
+.gift-wrapper.opened .gift-lid {
+  transform: translateY(-80px) rotate(-15deg);
+  opacity: 0;
+}
+
+.gift-wrapper.opened {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5);
+}
+
+/* ==========================================
+   REVEALED CARD & POLAROID PHOTO
+   ========================================== */
+.revealed-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.revealed-card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Polaroid Photo Frame */
+.polaroid-frame {
+  background: #ffffff;
+  padding: 12px 12px 20px 12px;
+  border-radius: 6px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease;
+  width: 260px;
+}
+
+.polaroid-frame:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.polaroid-frame img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.polaroid-caption {
+  font-family: 'Dancing Script', cursive;
+  color: #1e293b;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+/* Final Message Card */
+.final-message-box {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.final-heading {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #fbbf24;
+  margin-bottom: 8px;
+}
+
+.final-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+}
+
+.final-signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.25rem;
+  color: #38bdf8;
+  margin-top: 14px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Animations */
+@keyframes floatGift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
+}
+
+.heart-particle {
+  position: fixed;
+  z-index: 100;
+  pointer-events: none;
+  animation: heartBurst var(--duration) cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes heartBurst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.5) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(1.4) rotate(360deg);
+  }
+}
